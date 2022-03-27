@@ -1,10 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 //使用node的模块
 module.exports = {
   //这就是我们项目编译的入口文件
   entry: "./src/index.ts",
   output: {
+    path: path.resolve(__dirname, "dist"),
     filename: "main.js",
   },
   resolve: {
@@ -34,9 +36,5 @@ module.exports = {
     },
   },
   //这里就是一些插件
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/template/index.html",
-    }),
-  ],
+  plugins: [new HtmlWebpackPlugin()],
 };
