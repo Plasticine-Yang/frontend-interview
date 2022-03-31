@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "command": "tsc",
+  "type": "shell",
+  // -p 指定监听的目录 -w 开启监听 文件变动时自动编译
+  "args": ["-p", ".", "-w"],
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": false,
+    "panel": "shared",
+    "showReuseMessage": true,
+    "clear": false
+  },
+  "problemMatcher": "$tsc"
+}
