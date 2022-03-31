@@ -1,1 +1,1 @@
-import './01-algorithm/reverse-linked-list'
+import './01-algorithm/two-sum'
