@@ -78,4 +78,20 @@ describe('快速排序 -- 使用 slice', () => {
     expect(res).toEqual(expectedRes)
   })
 })
-it
+
+describe('性能测试', () => {
+  // 创建测试数组
+  const arr = []
+  const n = 10 * 10000
+  for (let i = 0; i < n; i++) arr.push(Math.floor(Math.random() * 1000))
+
+  const testStr1 = '快速排序(splice)'
+  console.time(testStr1)
+  quickSortWithSplice(arr)
+  console.timeEnd(testStr1)
+
+  const testStr2 = '快速排序(slice)'
+  console.time(testStr2)
+  quickSortWithSlice(arr)
+  console.timeEnd(testStr2)
+})
