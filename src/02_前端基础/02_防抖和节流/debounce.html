@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      input {
+        height: 30px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    搜索<input id="search" type="text" />
+
+    <script>
+      function debounce(callback, delay = 200) {
+        let timer = 0
+
+        return function () {
+          // 计时器还在运行就将其清除
+          if (timer) clearTimeout(timer)
+
+          timer = setTimeout(() => {
+            callback.apply(this, arguments)
+            timer = 0
+          }, delay)
+        }
+      }
+
+      const searchInput = document.getElementById('search')
+      searchInput.addEventListener(
+        'keyup',
+        debounce(() => {
+          console.log('发起搜索网络请求...', searchInput.value)
+        }, 300)
+      )
+    </script>
+  </body>
+</html>

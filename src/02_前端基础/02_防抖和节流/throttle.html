@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      input {
+        height: 30px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="dragable"
+      draggable="true"
+      style="width: 100px; height: 100px; background-color: lightskyblue"
+    >
+      可拖拽
+    </div>
+
+    <script>
+      function throttle(callback, delay = 100) {
+        let timer = 0
+
+        return function () {
+          if (timer) return
+
+          timer = setTimeout(() => {
+            callback.apply(this, arguments)
+            timer = 0
+          }, delay)
+        }
+      }
+
+      const dragable = document.getElementById('dragable')
+      dragable.addEventListener(
+        'drag',
+        throttle((e) => {
+          console.log('鼠标位置', e.offsetX, e.offsetY)
+        }, 300)
+      )
+    </script>
+  </body>
+</html>
