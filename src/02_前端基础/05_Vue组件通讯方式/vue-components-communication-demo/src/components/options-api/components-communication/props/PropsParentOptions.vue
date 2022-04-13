@@ -2,18 +2,18 @@
   <div class="parent-component">
     <h1>使用Props从父组件向子组件传值</h1>
     <h2>下面是父组件传给子组件的值</h2>
-    <sub-component :foo="foo" :post-title="postTitle"></sub-component>
+    <props-sub-options :foo="foo" :post-title="postTitle"></props-sub-options>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 
-import SubComponent from './SubComponent.vue'
+import PropsSubOptions from './PropsSubOptions.vue'
 
 export default defineComponent({
   components: {
-    SubComponent
+    PropsSubOptions
   },
   data() {
     return {

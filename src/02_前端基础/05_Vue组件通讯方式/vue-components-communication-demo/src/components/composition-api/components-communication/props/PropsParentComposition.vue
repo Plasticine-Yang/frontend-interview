@@ -2,14 +2,17 @@
   <div class="parent-component">
     <h1>使用Props从父组件向子组件传值</h1>
     <h2>下面是父组件传给子组件的值</h2>
-    <sub-component :foo="foo" :post-title="postTitle"></sub-component>
+    <props-sub-composition
+      :foo="foo"
+      :post-title="postTitle"
+    ></props-sub-composition>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import SubComponent from './SubComponent.vue'
+import PropsSubComposition from './PropsSubComposition.vue'
 
 const foo = ref<string>('foo')
 const postTitle = ref<string>('Hello Composition API')
