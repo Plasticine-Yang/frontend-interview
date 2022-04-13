@@ -6,13 +6,22 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 
 import SubComponent from './SubComponent.vue'
 
-const foo = ref<string>('foo')
-const postTitle = ref<string>('Hello Composition API')
+export default defineComponent({
+  components: {
+    SubComponent
+  },
+  data() {
+    return {
+      foo: 'foo',
+      postTitle: 'Hello Options API'
+    }
+  }
+})
 </script>
 
 <style scoped lang="scss">

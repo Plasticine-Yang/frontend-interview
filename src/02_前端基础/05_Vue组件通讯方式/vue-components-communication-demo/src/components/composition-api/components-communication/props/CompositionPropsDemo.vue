@@ -1,6 +1,5 @@
 <template>
   <div>
-    composition props 组件通讯
     <parent-component></parent-component>
   </div>
 </template>

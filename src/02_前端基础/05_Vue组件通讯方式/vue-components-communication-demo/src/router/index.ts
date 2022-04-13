@@ -24,7 +24,7 @@ const routes: RouteRecordRaw[] = [
         children: [
           {
             name: 'Options API 组件通讯',
-            path: '/components-communication',
+            path: '/options/components-communication',
             component: () =>
               import(
                 '@/components/options-api/components-communication/ComponentsCommunication.vue'
@@ -32,7 +32,7 @@ const routes: RouteRecordRaw[] = [
             children: [
               {
                 name: 'optionsProps',
-                path: '/props',
+                path: '/options/components-communication/props',
                 component: () =>
                   import(
                     '@/components/options-api/components-communication/props/OptionsPropsDemo.vue'
@@ -49,7 +49,7 @@ const routes: RouteRecordRaw[] = [
         children: [
           {
             name: 'Composition API 组件通讯',
-            path: '/components-communication',
+            path: '/composition/components-communication',
             component: () =>
               import(
                 '@/components/composition-api/components-communication/ComponentsCommunication.vue'
@@ -57,7 +57,7 @@ const routes: RouteRecordRaw[] = [
             children: [
               {
                 name: 'compositionProps',
-                path: '/props',
+                path: '/composition/components-communication/props',
                 component: () =>
                   import(
                     '@/components/composition-api/components-communication/props/CompositionPropsDemo.vue'
