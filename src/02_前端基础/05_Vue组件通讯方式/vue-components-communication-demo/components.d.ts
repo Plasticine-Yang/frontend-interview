@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SubComponent: typeof import('./src/components/composition-api/components-communication/props/SubComponent.vue')['default']
+    Welcome: typeof import('./src/components/Welcome.vue')['default']
   }
 }
 

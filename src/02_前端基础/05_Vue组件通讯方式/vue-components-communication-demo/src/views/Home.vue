@@ -1,8 +1,11 @@
 <template>
   <a-layout class="home" style="min-height: 100vh">
     <!-- sider -->
-    <a-layout-sider v-model:collapsed="collapsed" collapible width="300">
-      <div class="logo" />
+    <a-layout-sider v-model:collapsed="collapsed" collapsible width="300">
+      <div class="logo" @click="goWelcome">
+        <img src="@/assets/logo.png" alt="logo" />
+        <span v-show="!collapsed">Vue Learning</span>
+      </div>
       <a-menu
         v-model:selectedKeys="current"
         @click="handleMenuItemClick"
@@ -78,14 +81,41 @@ const collapsed = ref<boolean>(false)
 const current = ref<string[]>(['options'])
 
 // methods
+// 菜单跳转
 function handleMenuItemClick({ key }: MenuInfo) {
   router.push({
     name: key.toString()
   })
 }
+
+// 图标回到欢迎页
+function goWelcome() {
+  router.push({
+    name: '欢迎'
+  })
+  current.value = []
+}
 </script>
 
 <style scoped lang="scss">
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+
+  img {
+    width: 3rem;
+  }
+
+  span {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}
 .site-layout-bg {
   background-color: #f0f2f5;
 }

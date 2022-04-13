@@ -10,7 +10,13 @@ const routes: RouteRecordRaw[] = [
     name: '主页',
     path: '/home',
     component: () => import('@/views/Home.vue'),
+    redirect: '/welcome',
     children: [
+      {
+        name: '欢迎',
+        path: '/welcome',
+        component: () => import('@/components/Welcome.vue')
+      },
       {
         name: 'Options API Demo',
         path: '/options',
