@@ -4,6 +4,8 @@
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb']
+    ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
@@ -12,12 +14,14 @@ declare module '@vue/runtime-core' {
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ComponentsCommunication: typeof import('./src/components/composition-api/components-communication/ComponentsCommunication.vue')['default']
-    CompositionPropsDemo: typeof import('./src/components/composition-api/components-communication/CompositionPropsDemo.vue')['default']
-    OptionsPropsDemo: typeof import('./src/components/options-api/components-communication/OptionsPropsDemo.vue')['default']
+    CompositionPropsDemo: typeof import('./src/components/composition-api/components-communication/props/CompositionPropsDemo.vue')['default']
+    OptionsPropsDemo: typeof import('./src/components/options-api/components-communication/props/OptionsPropsDemo.vue')['default']
+    ParentComponent: typeof import('./src/components/composition-api/components-communication/props/ParentComponent.vue')['default']
     Props: typeof import('./src/components/options-api/components-communication/props.vue')['default']
     PropsDemo: typeof import('./src/components/composition-api/components-communication/PropsDemo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SubComponent: typeof import('./src/components/composition-api/components-communication/props/SubComponent.vue')['default']
   }
 }
 

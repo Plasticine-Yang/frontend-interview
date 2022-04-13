@@ -29,7 +29,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/props',
                 component: () =>
                   import(
-                    '@/components/options-api/components-communication/OptionsPropsDemo.vue'
+                    '@/components/options-api/components-communication/props/OptionsPropsDemo.vue'
                   )
               }
             ]
@@ -54,7 +54,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/props',
                 component: () =>
                   import(
-                    '@/components/composition-api/components-communication/CompositionPropsDemo.vue'
+                    '@/components/composition-api/components-communication/props/CompositionPropsDemo.vue'
                   )
               }
             ]

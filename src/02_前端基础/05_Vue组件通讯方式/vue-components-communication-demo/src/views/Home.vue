@@ -1,5 +1,6 @@
 <template>
   <a-layout class="home" style="min-height: 100vh">
+    <!-- sider -->
     <a-layout-sider v-model:collapsed="collapsed" collapible width="300">
       <div class="logo" />
       <a-menu
@@ -34,8 +35,22 @@
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
-    <a-layout>
-      <a-layout-content>
+    <!-- main -->
+    <a-layout style="padding: 0 24px 24px" class="site-layout-bg">
+      <!-- 面包屑 -->
+      <a-breadcrumb style="margin: 16px 0">
+        <a-breadcrumb-item>Home</a-breadcrumb-item>
+        <a-breadcrumb-item>List</a-breadcrumb-item>
+        <a-breadcrumb-item>App</a-breadcrumb-item>
+      </a-breadcrumb>
+      <a-layout-content
+        :style="{
+          background: '#fff',
+          padding: '24px',
+          margin: 0,
+          minHeight: '80%'
+        }"
+      >
         <router-view></router-view>
       </a-layout-content>
     </a-layout>
@@ -70,4 +85,8 @@ function handleMenuItemClick({ key }: MenuInfo) {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.site-layout-bg {
+  background-color: #f0f2f5;
+}
+</style>
