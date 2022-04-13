@@ -22,6 +22,7 @@
           <a-sub-menu key="Options API 组件通讯">
             <template #title> 组件通讯 </template>
             <a-menu-item key="optionsProps"> props父传子 </a-menu-item>
+            <a-menu-item key="optionsEmit"> emit子传父 </a-menu-item>
           </a-sub-menu>
         </a-sub-menu>
         <!-- Composition Demo -->
@@ -34,6 +35,7 @@
           <a-sub-menu>
             <template #title>组件通讯</template>
             <a-menu-item key="compositionProps">props父传子</a-menu-item>
+            <a-menu-item key="compositionEmit">emit子传父</a-menu-item>
           </a-sub-menu>
         </a-sub-menu>
       </a-menu>
