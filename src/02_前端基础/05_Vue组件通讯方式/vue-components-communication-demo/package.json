@@ -1,0 +1,25 @@
+{
+  "name": "vue-components-communication-demo",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ant-design-vue": "^3.1.1",
+    "sass": "^1.50.0",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.0",
+    "sass-loader": "^12.6.0",
+    "typescript": "^4.5.4",
+    "unplugin-auto-import": "^0.7.0",
+    "unplugin-vue-components": "^0.19.2",
+    "vite": "^2.9.0",
+    "vue-tsc": "^0.29.8"
+  }
+}
