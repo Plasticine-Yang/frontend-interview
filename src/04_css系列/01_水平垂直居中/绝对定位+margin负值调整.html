@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绝对定位+margin负值调整</title>
+    <style>
+      /* 3. 绝对定位 -- top 和 left 50%，再用 margin 负值 调整水平和垂直回移一半 */
+      .parent {
+        /* 关键代码 */
+        position: relative;
+        /* 关键代码 */
+        width: 500px;
+        height: 500px;
+        background-color: lightskyblue;
+      }
+      .child {
+        /* 关键代码 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+        /* 关键代码 */
+        width: 50px;
+        height: 50px;
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </body>
+</html>
