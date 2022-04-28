@@ -128,6 +128,16 @@ class MyPromise {
   }
 
   then(onFulfilled, onRejected) {
+    // onFulfilled 和 onRejected 是可选参数，如果没传的时候应当设置默认值
+    onFulfilled =
+      typeof onFulfilled === 'function' ? onFulfilled : (value) => value
+    onRejected =
+      typeof onRejected === 'function'
+        ? onRejected
+        : (reason) => {
+            throw reason
+          }
+
     const promise2 = new MyPromise((resolve, reject) => {
       // 根据状态去判断执行哪一个回调
       if (this.status === FULFILLED) {

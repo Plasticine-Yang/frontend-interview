@@ -17,30 +17,36 @@ const MyPromise = require('./MyPromise')
 //   }
 // )
 
-const promise1 = new MyPromise((resolve, reject) => {
-  resolve('plasticine')
+// const promise1 = new MyPromise((resolve, reject) => {
+//   resolve('plasticine')
+// })
+
+// const promise2 = promise1.then(
+//   (value) => {
+//     return value
+//   },
+//   (reason) => {
+//     return reason
+//   }
+// )
+
+// promise2
+//   .then()
+//   .then()
+//   .then()
+//   .then((value) => {
+//     console.log(value)
+//   })
+
+new MyPromise((resolve, reject) => {
+  resolve('xxx')
+  reject(new Error('yyy'))
 })
-
-const promise2 = promise1.then(
-  (value) => {
-    return new MyPromise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(value)
-      }, 2000)
-    })
-  },
-  (reason) => {
-    return reason
-  }
-)
-
-promise2.then(
-  (value) => {
+  .then((value) => {
     console.log(value)
-  },
-  (reason) => {
+  })
+  .catch((reason) => {
     console.log(reason)
-  }
-)
+  })
 
 // => plasticine
