@@ -17,6 +17,9 @@ function deepClone(obj, circleMap = new WeakMap()) {
     const copiedMap = new Map();
     obj.forEach((value, key) => copiedMap.set(key, deepClone(value)));
 
+    // 存入缓存
+    circleMap.set(obj, true);
+
     return copiedMap;
   }
 
@@ -25,6 +28,9 @@ function deepClone(obj, circleMap = new WeakMap()) {
     const copiedSet = new Set();
     obj.forEach((value) => copiedSet.add(value));
 
+    // 存入缓存
+    circleMap.set(obj, true);
+
     return copiedSet;
   }
 
@@ -32,6 +38,10 @@ function deepClone(obj, circleMap = new WeakMap()) {
   const constructor = obj.constructor;
   if (/^(RegExp|Date)$/i.test(constructor.name)) {
     // RegExp 或 Date 类型
+
+    // 存入缓存
+    circleMap.set(obj, true);
+
     return new constructor(obj);
   }
 
