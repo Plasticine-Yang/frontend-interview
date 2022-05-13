@@ -99,6 +99,14 @@ class MyPromise {
      */
 
     const resolve = (value) => {
+      // 当 value 是 MyPromise 实例的时候
+      if (value instanceof MyPromise) {
+        value.then(resolve, reject)
+
+        // 一定要 return 否则会无限递归下去
+        return
+      }
+
       // 只有在 PENDING 状态时才能转换到 FULFILLED 状态
       if (this.status === PENDING) {
         this.status = FULFILLED
@@ -125,6 +133,28 @@ class MyPromise {
     } catch (e) {
       reject(e)
     }
+  }
+
+  /**
+   * resolve 的语法糖
+   * @param {any} value value
+   * @returns MyPromise
+   */
+  static resolve(value) {
+    return new MyPromise((resolve, reject) => {
+      resolve(value)
+    })
+  }
+
+  /**
+   * reject 的语法糖
+   * @param {any} reason reason
+   * @returns MyPromise
+   */
+  static reject(reason) {
+    return new MyPromise((resolve, reject) => {
+      reject(reason)
+    })
   }
 
   then(onFulfilled, onRejected) {
@@ -198,6 +228,18 @@ class MyPromise {
   catch(onRejected) {
     return this.then(null, onRejected)
   }
+}
+
+// 用于测试 Promises/A+ 规范
+MyPromise.defer = MyPromise.deferred = function () {
+  let deferred = {}
+
+  deferred.promise = new MyPromise((resolve, reject) => {
+    deferred.resolve = resolve
+    deferred.reject = reject
+  })
+
+  return deferred
 }
 
 module.exports = MyPromise
